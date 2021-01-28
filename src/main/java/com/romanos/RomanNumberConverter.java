@@ -9,6 +9,10 @@ import java.util.Map;
 
 public class RomanNumberConverter {
 
+    public static void main(String[] args) {
+        System.out.println(convertToRomanNumber(4518));
+    }
+
     public static String convertToRomanNumber(Integer number){
         if(number <= 0) return "Invalid input";
         Map<Integer, String> romanNumbers = new HashMap<>();
@@ -31,7 +35,7 @@ public class RomanNumberConverter {
 
             if(rest == number) continue;
 
-            if(division < 3 || divisors.get(i) == 1000){
+            if(division <= 3 || divisors.get(i) == 1000){
                 String s = romanNumbers.get(divisors.get(i));
                 sb.append(new String(new char[division]).replace("\0", s));
             } else {
