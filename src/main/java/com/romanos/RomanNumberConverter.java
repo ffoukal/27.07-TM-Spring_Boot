@@ -10,7 +10,7 @@ import java.util.Map;
 public class RomanNumberConverter {
 
     public static void main(String[] args) {
-        System.out.println(convertToRomanNumber(4518));
+        System.out.println(convertToRomanNumber(4598));
     }
 
     public static String convertToRomanNumber(Integer number){
@@ -33,13 +33,13 @@ public class RomanNumberConverter {
             int division = Math.floorDiv(number, divisors.get(i));
             int rest = number % divisors.get(i);
 
-            if(rest == number) continue;
+            if(rest == number || (i < divisors.size() - 1 && rest > (3 * divisors.get(i + 1)))) continue;
 
             if(division <= 3 || divisors.get(i) == 1000){
                 String s = romanNumbers.get(divisors.get(i));
                 sb.append(new String(new char[division]).replace("\0", s));
             } else {
-                String s_1 = romanNumbers.get(divisors.get(i - 1));
+                String s_1 = romanNumbers.get(divisors.get(i - 2));
                 String s = romanNumbers.get(divisors.get(i));
                 sb.append(s + s_1);
             }

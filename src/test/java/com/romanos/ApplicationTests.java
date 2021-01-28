@@ -28,7 +28,7 @@ class ApplicationTests {
 		this.mockMvc.perform(get("/convertir_a_romano/4518"))
 				.andDo(print())
 				.andExpect(status().isOk())
-				.andExpect(content().string(containsString("El número 4518 en números romanos es: MMMMDXVIV")));
+				.andExpect(content().string(containsString("El número 4518 en números romanos es: MMMMDXVIII")));
 	}
 
 }
